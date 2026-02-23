@@ -38,7 +38,7 @@ const CONTENT = {
       "Through internships in fixed income at Empire Life Investments, specialty underwriting at CNA Financial, and business banking at Libro Credit Union, I have built a strong foundation in credit analysis, financial statement analysis, and quantitative modelling.",
       "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. I also manage a personal trading account across equities, indices, crypto, and commodities including gold, which keeps me closely engaged with markets every day."
     ],
-    philosophy: "My approach combines top-down macro and bottom-up fundamentals. On the macro side, I track the TGA, ISM PMI, and global liquidity to understand the broader backdrop before getting into individual names. From there, I look for businesses where the market has not fully priced in the underlying value. The goal is to find good companies at the right point in the cycle.",
+    philosophy: "I start with macro. Pair charts tell me which asset class is leading, and indicators like the TGA, ISM PMI, and global liquidity tell me what the broader environment looks like. Once I know where the opportunity is, I go bottom-up on equities to find where the value is, and use technical analysis for assets like gold and bitcoin where there is no balance sheet to work from.",
     certifications: [
       { name: "CFA Level I", issuer: "CFA Institute", date: "November 2023", status: "Earned" },
       { name: "CFA Level II Candidate", issuer: "CFA Institute", date: "May 2026", status: "In Progress" },
