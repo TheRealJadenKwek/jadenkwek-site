@@ -137,9 +137,9 @@ const CONTENT = {
       title:    "Why I Started This Site",
       date:     "2025-02-23",
       category: "Meta",
-      excerpt:  "Why I decided to put my research and trading journal online, and what you can expect to find here.",
+      excerpt:  "Why I decided to put my research and trading ideas online, and what you can expect to find here.",
       content:  `
-        <p>I've been meaning to do this for a while. I track a lot — macro indicators, pair charts, individual names, trades — and most of it just sits in spreadsheets and notes that nobody sees. This site is my attempt to change that.</p>
+        <p>I've been meaning to do this for a while. I track a lot — macro indicators, pair charts, individual names, trades, and most of it just sits in my brain. This site is my attempt to change that.</p>
 
         <p>The main reason I'm doing this is that publishing forces you to be precise. It's easy to have a vague bullish view on something. It's harder to write it down, put a price target on it, and explain exactly why. That friction is the point.</p>
 
@@ -152,38 +152,10 @@ const CONTENT = {
         </ul>
 
         <h2>How I approach markets</h2>
-        <p>I start with macro. Pair charts, the TGA, ISM PMI, global liquidity — that tells me which asset class makes sense to be in. Then I go bottom-up to find the specific names, and use technical analysis for things like gold and bitcoin where there's no income statement to work from.</p>
+        <p>I start with macro. Pair charts, the TGA, ISM PMI, global liquidity, that tells me which asset class makes sense to be in. Then I go bottom-up to find the specific names, and use technical analysis for things like gold and bitcoin where there's no income statement to work from.</p>
 
         <p>Anyway, more to come. Thanks for reading.</p>
       `
     },
-    {
-      id:       2,
-      title:    "Breaking Down a DCF: The Assumptions That Matter Most",
-      date:     "2025-01-15",
-      category: "Education",
-      excerpt:  "A DCF is only as good as its assumptions. Here's how I think about the inputs that drive the most value — and the common mistakes to avoid.",
-      content:  `
-        <p>A discounted cash flow model is the foundation of fundamental equity valuation. But in practice, most of the value debate comes down to a handful of key assumptions. Understanding which levers matter — and how sensitive your output is to each — is far more important than building a technically flawless model.</p>
-
-        <h2>The Three Inputs That Drive 80% of the Value</h2>
-        <p>In nearly every DCF I build, three assumptions dominate the output:</p>
-        <ul>
-          <li><strong>Revenue growth in years 3–7.</strong> Near-term growth is usually visible. Terminal value is a separate discussion. The middle years — where the business has moved past its current trajectory but hasn't yet reached maturity — are where the most analytical work pays off.</li>
-          <li><strong>Terminal growth rate.</strong> A change of 50bps in the terminal growth rate can move equity value by 15–20% for a high-multiple business. Always sanity-check this against long-run nominal GDP growth.</li>
-          <li><strong>WACC / discount rate.</strong> This is both the most important and the most abused input. I prefer to run scenarios rather than anchor on a point estimate.</li>
-        </ul>
-
-        <h2>The Mistake Most People Make</h2>
-        <p>Most people optimise for precision in their near-term forecasts and then apply a single terminal value. This is backwards. The terminal value typically represents 60–80% of the total enterprise value — getting it roughly right matters far more than nailing your Year 2 EBITDA margin to two decimal places.</p>
-
-        <blockquote>A model should be a structured way to think about a business, not a false oracle of precision.</blockquote>
-
-        <h2>How I Use My DCFs</h2>
-        <p>I use DCFs to understand the implied expectations embedded in the current stock price. Rather than asking "what is this worth?", I ask "what does the market need to believe for this price to make sense?" That framing is far more useful for identifying mispricings.</p>
-
-        <p>More on valuation methodology in future posts.</p>
-      `
-    }
   ]
 };
