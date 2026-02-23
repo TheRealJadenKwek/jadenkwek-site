@@ -6,9 +6,9 @@
 const NAV_HTML = `
 <nav class="nav">
   <div class="nav-container">
-    <a href="index.html" class="nav-logo">JADEN <span>KWEK</span></a>
+    <a href="/" class="nav-logo">JADEN <span>KWEK</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
@@ -29,7 +29,7 @@ const FOOTER_HTML = `
     <div>
       <div class="footer-nav-label">Navigation</div>
       <nav class="footer-links">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="research.html">Research</a>
         <a href="blog.html">Blog</a>
         <a href="https://www.linkedin.com/in/jadenkwek" target="_blank" rel="noopener">LinkedIn ↗</a>
