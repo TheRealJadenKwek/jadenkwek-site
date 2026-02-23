@@ -1,14 +1,17 @@
+[build]
+  publish = "."
+
 [[redirects]]
-  from = "/research"
-  to   = "/research.html"
+  from   = "/research"
+  to     = "/research.html"
   status = 200
 
 [[redirects]]
-  from = "/blog"
-  to   = "/blog.html"
+  from   = "/blog"
+  to     = "/blog.html"
   status = 200
 
 [[redirects]]
-  from = "/post"
-  to   = "/post.html"
+  from   = "/post"
+  to     = "/post.html"
   status = 200
