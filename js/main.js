@@ -71,15 +71,22 @@ function ratingBadge(rating) {
   return `<span class="badge badge-${cls}">${rating}</span>`;
 }
 
-function fileButtons(files) {
+function fileButtons(files, modalMode = false) {
   if (!files || !files.length) return '';
   return files.map(f => {
     const cls   = f.type === 'pdf' ? 'pdf' : f.type === 'excel' ? 'excel' : '';
     const icon  = f.type === 'pdf' ? ICONS.pdf : f.type === 'excel' ? ICONS.excel : ICONS.link;
-    if (f.url) {
-      return `<a class="file-btn ${cls}" href="${f.url}" target="_blank" rel="noopener">${icon}${f.name}</a>`;
+    if (!f.url) {
+      return `<span class="file-btn ${cls}" style="opacity:.45;cursor:default">${icon}${f.name}</span>`;
     }
-    return `<span class="file-btn ${cls}" style="opacity:.45;cursor:default">${icon}${f.name}</span>`;
+    // In modal mode, Excel files get a Preview + Download pair
+    if (modalMode && f.type === 'excel') {
+      const fullUrl    = window.location.origin + '/' + f.url;
+      const previewUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(fullUrl);
+      return `<a class="file-btn excel" href="${previewUrl}" target="_blank" rel="noopener">${ICONS.excel}Preview Model</a>` +
+             `<a class="file-btn" href="${f.url}" download rel="noopener" style="background:var(--bg-secondary);color:var(--navy);border:1px solid var(--border)">${ICONS.link}Download</a>`;
+    }
+    return `<a class="file-btn ${cls}" href="${f.url}" target="_blank" rel="noopener">${icon}${f.name}</a>`;
   }).join('');
 }
 
@@ -301,7 +308,7 @@ function openResearchModal(id) {
   document.getElementById('modal-prices').innerHTML = prices.join('');
 
   document.getElementById('modal-footer').innerHTML = r.files && r.files.length
-    ? fileButtons(r.files)
+    ? fileButtons(r.files, true)
     : '<span style="font-size:0.82rem;color:var(--text-muted)">No files attached yet.</span>';
 
   modal.classList.add('open');
