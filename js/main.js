@@ -214,6 +214,7 @@ function renderFeaturedResearch() {
   if (!container || !CONTENT?.research?.length) return;
   const items = [...CONTENT.research].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
   container.innerHTML = items.map(r => researchCardHTML(r)).join('');
+  refreshCardPrices();
 }
 
 function renderRecentBlog() {
