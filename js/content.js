@@ -34,7 +34,7 @@ const CONTENT = {
     email:     "jaden.kwek@gmail.com",
     linkedin:  "https://www.linkedin.com/in/jadenkwek",
     bio: [
-      "I am a double-degree student at Wilfrid Laurier University studying Business Administration and Financial Mathematics, maintaining a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
+      "I graduated from Wilfrid Laurier University in May 2025 with a double degree in Business Administration and Financial Mathematics, finishing with a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
       "Through internships in fixed income at Empire Life Investments, specialty underwriting at CNA Financial, and business banking at Libro Credit Union, I have built a strong foundation in credit analysis, financial statement analysis, and quantitative modelling.",
       "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. I also manage a personal trading account across equities, indices, crypto, and commodities including gold, which keeps me closely engaged with markets every day."
     ],
