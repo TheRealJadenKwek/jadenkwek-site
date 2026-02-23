@@ -948,3 +948,163 @@ a { color: inherit; text-decoration: none; }
   .skills-grid { gap: 0.4rem; }
   .skill-tag { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
 }
+
+/* ── RESEARCH CARD MODAL ─────────────────────────────── */
+.research-card-clickable {
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.research-card-clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 30, 58, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: modalFadeIn 0.2s ease;
+}
+.modal-overlay.open {
+  display: flex;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-card {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: modalSlideUp 0.22s ease;
+  position: relative;
+}
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem 1.75rem 0;
+}
+.modal-header-left { display: flex; flex-direction: column; gap: 0.3rem; }
+.modal-ticker {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.modal-company {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.modal-close {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+.modal-close:hover { background: var(--bg-tertiary); color: var(--navy); }
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.75rem 0;
+}
+.modal-meta-item {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.modal-meta-dot { color: var(--border-dark); font-size: 0.9rem; }
+
+.modal-prices {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 1.75rem 0;
+}
+.modal-price-block { display: flex; flex-direction: column; gap: 0.2rem; }
+.modal-price-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.modal-price-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.modal-price-value.target { color: var(--buy); }
+
+.modal-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.25rem 1.75rem 0;
+}
+
+.modal-body { padding: 1.25rem 1.75rem 0; }
+.modal-thesis-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+.modal-thesis {
+  font-size: 0.925rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+
+.modal-footer {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .modal-header { padding: 1.25rem 1.25rem 0; }
+  .modal-meta   { padding: 0.75rem 1.25rem 0; }
+  .modal-prices { padding: 0.75rem 1.25rem 0; }
+  .modal-divider { margin: 1rem 1.25rem 0; }
+  .modal-body   { padding: 1rem 1.25rem 0; }
+  .modal-footer { padding: 1.25rem; }
+  .modal-ticker { font-size: 1.4rem; }
+}

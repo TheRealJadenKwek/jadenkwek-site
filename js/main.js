@@ -9,8 +9,8 @@ const NAV_HTML = `
     <a href="/" class="nav-logo">JADEN <span>KWEK</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="/research">Research</a></li>
+      <li><a href="/blog">Trading Blog</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -30,8 +30,8 @@ const FOOTER_HTML = `
       <div class="footer-nav-label">Navigation</div>
       <nav class="footer-links">
         <a href="/">Home</a>
-        <a href="research.html">Research</a>
-        <a href="blog.html">Blog</a>
+        <a href="/research">Research</a>
+        <a href="/blog">Trading Blog</a>
         <a href="https://www.linkedin.com/in/jadenkwek" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="mailto:jaden.kwek@gmail.com">Email</a>
       </nav>
@@ -94,9 +94,13 @@ function initPage() {
   if (footSlot) footSlot.innerHTML = FOOTER_HTML;
 
   // Highlight active nav link
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-links a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
+    const href = a.getAttribute('href').replace(/\.html$/, '');
+    const normPath = path.replace(/\.html$/, '');
+    if (href === normPath || (href === '/' && (normPath === '' || normPath === '/index'))) {
+      a.classList.add('active');
+    }
   });
 
   // Mobile menu toggle
@@ -112,6 +116,36 @@ function initPage() {
   const loader = document.getElementById('site-loader');
   if (loader) {
     setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => loader.remove(), 400); }, 150);
+  }
+
+  // Inject research modal (only once)
+  if (!document.getElementById('research-modal')) {
+    const modal = document.createElement('div');
+    modal.id = 'research-modal';
+    modal.className = 'modal-overlay';
+    modal.innerHTML = `
+      <div class="modal-card" id="modal-card">
+        <div class="modal-header">
+          <div class="modal-header-left">
+            <div class="modal-ticker" id="modal-ticker"></div>
+            <div class="modal-company" id="modal-company"></div>
+          </div>
+          <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+        </div>
+        <div class="modal-meta" id="modal-meta"></div>
+        <div class="modal-prices" id="modal-prices"></div>
+        <div class="modal-divider"></div>
+        <div class="modal-body">
+          <div class="modal-thesis-label">Investment Thesis</div>
+          <div class="modal-thesis" id="modal-thesis"></div>
+        </div>
+        <div class="modal-footer" id="modal-footer"></div>
+      </div>`;
+    document.body.appendChild(modal);
+
+    document.getElementById('modal-close').addEventListener('click', closeResearchModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeResearchModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeResearchModal(); });
   }
 }
 
@@ -199,7 +233,7 @@ function renderPostPage() {
 
   if (!post) {
     document.getElementById('post-content').innerHTML =
-      `<div class="empty-state"><p>Post not found. <a href="blog.html" style="color:var(--accent)">← Back to Blog</a></p></div>`;
+      `<div class="empty-state"><p>Post not found. <a href="/blog" style="color:var(--accent)">← Back to Blog</a></p></div>`;
     return;
   }
 
@@ -207,7 +241,7 @@ function renderPostPage() {
   const d = formatDateParts(post.date);
 
   document.getElementById('post-content').innerHTML = `
-    <a href="blog.html" class="btn btn-outline btn-sm" style="margin-bottom:2rem;display:inline-flex">← Back to Blog</a>
+    <a href="/blog" class="btn btn-outline btn-sm" style="margin-bottom:2rem;display:inline-flex">← Back to Blog</a>
     <div class="post-meta-bar">
       <span class="badge badge-sector">${post.category}</span>
       <span>${formatDate(post.date)}</span>
@@ -217,7 +251,7 @@ function renderPostPage() {
     <div class="post-divider"></div>
     <div class="post-body">${post.content}</div>
     <div class="post-divider" style="margin-top:3rem"></div>
-    <a href="blog.html" class="btn btn-outline btn-sm" style="margin-top:1rem">← All Posts</a>
+    <a href="/blog" class="btn btn-outline btn-sm" style="margin-top:1rem">← All Posts</a>
   `;
 
   // Render recent posts in sidebar
@@ -231,7 +265,7 @@ function renderPostPage() {
         ${recent.map(p => `
           <div style="padding:0.6rem 0;border-bottom:1px solid var(--border)">
             <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:0.2rem">${formatDate(p.date, {month:'short',day:'numeric',year:'numeric'})}</div>
-            <a href="post.html?id=${p.id}" style="font-size:0.875rem;font-weight:500;color:var(--navy);transition:color .2s"
+            <a href="/post?id=${p.id}" style="font-size:0.875rem;font-weight:500;color:var(--navy);transition:color .2s"
                onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--navy)'">${p.title}</a>
           </div>`).join('')}
       </div>
@@ -243,11 +277,50 @@ function renderPostPage() {
   }
 }
 
+/* ── RESEARCH MODAL ────────────────────────────────────── */
+function openResearchModal(id) {
+  const r = CONTENT.research.find(x => x.id === id);
+  if (!r) return;
+  const modal = document.getElementById('research-modal');
+  if (!modal) return;
+
+  document.getElementById('modal-ticker').textContent  = r.ticker;
+  document.getElementById('modal-company').textContent = r.company;
+  document.getElementById('modal-thesis').textContent  = r.thesis;
+
+  document.getElementById('modal-meta').innerHTML =
+    `${ratingBadge(r.rating)}
+     <span class="modal-meta-dot">·</span>
+     <span class="badge badge-sector">${r.sector}</span>
+     <span class="modal-meta-dot">·</span>
+     <span class="modal-meta-item">${formatDate(r.date, {month:'long', day:'numeric', year:'numeric'})}</span>`;
+
+  const prices = [];
+  if (r.currentPrice) prices.push(`<div class="modal-price-block"><div class="modal-price-label">Current Price</div><div class="modal-price-value">${r.currentPrice}</div></div>`);
+  if (r.targetPrice)  prices.push(`<div class="modal-price-block"><div class="modal-price-label">Price Target</div><div class="modal-price-value target">${r.targetPrice}</div></div>`);
+  document.getElementById('modal-prices').innerHTML = prices.join('');
+
+  document.getElementById('modal-footer').innerHTML = r.files && r.files.length
+    ? fileButtons(r.files)
+    : '<span style="font-size:0.82rem;color:var(--text-muted)">No files attached yet.</span>';
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeResearchModal() {
+  const modal = document.getElementById('research-modal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 /* ── REUSABLE CARD TEMPLATES ───────────────────────────── */
 function researchCardHTML(r) {
   const ratingCls = r.rating ? `rating-${r.rating.toLowerCase()}` : '';
   return `
-  <div class="card ${ratingCls}">
+  <div class="card ${ratingCls} research-card-clickable" role="button" tabindex="0"
+       onclick="openResearchModal(${r.id})"
+       onkeydown="if(event.key==='Enter'||event.key===' ')openResearchModal(${r.id})">
     <div class="card-body">
       <div class="research-card-header">
         <div>
@@ -265,7 +338,7 @@ function researchCardHTML(r) {
       <p class="research-thesis">${r.thesis}</p>
     </div>
     ${r.files && r.files.length ? `
-    <div class="card-footer">
+    <div class="card-footer" onclick="event.stopPropagation()">
       <div class="research-files">${fileButtons(r.files)}</div>
     </div>` : ''}
   </div>`;
@@ -274,7 +347,7 @@ function researchCardHTML(r) {
 function blogRowHTML(p) {
   const d = formatDateParts(p.date);
   return `
-  <a href="post.html?id=${p.id}" class="blog-row" style="text-decoration:none">
+  <a href="/post?id=${p.id}" class="blog-row" style="text-decoration:none">
     <div class="blog-date-col">
       <span class="month">${d.month}</span>
       <span class="day">${d.day}</span>
@@ -291,7 +364,7 @@ function blogRowHTML(p) {
 
 function blogCardHTML(p) {
   return `
-  <a href="post.html?id=${p.id}" class="card" style="display:block;text-decoration:none">
+  <a href="/post?id=${p.id}" class="card" style="display:block;text-decoration:none">
     <div class="card-body">
       <div class="blog-card-date">${formatDate(p.date, {month:'long', day:'numeric', year:'numeric'})}</div>
       <div class="blog-card-category">${p.category}</div>
