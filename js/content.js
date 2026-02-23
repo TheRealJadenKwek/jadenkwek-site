@@ -157,5 +157,58 @@ const CONTENT = {
         <p>Anyway, more to come. Thanks for reading.</p>
       `
     },
+    {
+      id:       2,
+      title:    "Trading Week Feb 23–27: Rough Start",
+      date:     "2026-02-23",
+      category: "Weekly Recap",
+      excerpt:  "Bitcoin dumps to $64,700, gold hits $5,200, and I'm sitting here regretting selling my gold in early February. Weekly breakdown across crypto, DXY, and macro.",
+      content:  `
+        <p>Not going to sugarcoat it — this has been a rough start to the week. Everything is down, the macro picture is mixed, and I'm dealing with some bad positioning that I need to talk through. Let's get into it.</p>
+
+        <h2>Bitcoin</h2>
+        <p>BTC is down 4.4% on the day, sitting at $64,700. Not a great look. What makes it worse is the context around how I got here.</p>
+
+        <img src="img/blog/feb23-27/btc.png" alt="BTC/USD chart" class="post-img" />
+
+        <p>I sold my gold position in early February and moved the whole thing into crypto. At the time I thought it made sense. In hindsight, not so much.</p>
+
+        <h2>Gold — The One That Hurts</h2>
+        <p>I sold gold at $4,800. It's now at $5,200. I then bought Bitcoin at $70,800. It's now at $64,700. That's the trade in a nutshell and it's painful to look at.</p>
+
+        <img src="img/blog/feb23-27/gold.png" alt="XAU/USD chart" class="post-img" />
+
+        <p>The obvious question is whether I should just sell crypto and rotate back into gold now. I don't think so. The move has already happened and chasing it here feels wrong. I'm going to hold what I have and wait for a better entry point on the pair.</p>
+
+        <h2>Altcoins</h2>
+        <p>Broader crypto is getting hit just as hard. Fartcoin and SPX are both down around 10% on the day. Hyperliquid is getting eviscerated. I have a long on HYPE from $36 which I am not happy about. That entry was a mistake and I'm sitting in the red on it.</p>
+
+        <img src="img/blog/feb23-27/watchlist.png" alt="Crypto watchlist" class="post-img" />
+
+        <p>PEPE is one of the few holding up decently today which is interesting given the broader carnage. Doesn't change my overall read on the space.</p>
+
+        <h2>BTC/GOLD Pair</h2>
+        <p>Looking at the BTC/GOLD 4H chart, the setup is pretty bearish. The pair has been grinding lower and I don't see a strong case for it reversing right now. That said, I'm not going to flip my entire portfolio on a 4H chart. I'll wait to see if there's a bounce on this pair before I consider making any moves.</p>
+
+        <img src="img/blog/feb23-27/btc-gold.png" alt="BTC/GOLD 4H ratio chart" class="post-img" />
+
+        <h2>DXY</h2>
+        <p>I'm still short DXY and still believe this is a local top. The Trump tariff noise — 15% across the board — is annoying but I think the market is going to shrug at it eventually. It's hard to take it seriously as a sustained dollar catalyst when the underlying economic picture is softening. We'll see.</p>
+
+        <img src="img/blog/feb23-27/dxy.png" alt="DXY chart" class="post-img" />
+
+        <h2>Macro: TGA and Global Liquidity</h2>
+        <p>TGA is sitting at $912B which is still quite high. The RRP has already been fully drained so there's no liquidity coming from there. For risk assets to get a real bid, I think we need to start seeing that TGA come down. Watching this closely.</p>
+
+        <img src="img/blog/feb23-27/tga.png" alt="TGA / Global liquidity chart" class="post-img" />
+
+        <h2>ISM PMI</h2>
+        <p>ISM came in at 52.6 which is actually a good number — anything above 50 is expansion. The confusing part is that risk assets are still getting sold off despite this. Maybe the market is more focused on the tariff noise and crypto deleveraging than the underlying data. I'm not reading too much into the disconnect yet, but it's something to watch.</p>
+
+        <img src="img/blog/feb23-27/ism.png" alt="ISM PMI chart" class="post-img" />
+
+        <p>That's it for now. Tough week so far but nothing that changes my longer-term views. I'll post an update later in the week if anything material changes.</p>
+      `
+    },
   ]
 };

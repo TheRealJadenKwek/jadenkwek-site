@@ -949,6 +949,16 @@ a { color: inherit; text-decoration: none; }
   .skill-tag { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
 }
 
+/* ── BLOG POST IMAGES ────────────────────────────────── */
+.post-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  margin: 1.75rem 0;
+  display: block;
+}
+
 /* ── LIVE PRICE BADGES ───────────────────────────────── */
 .live-price-wrap { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
 .live-price-badge { font-style: normal; font-weight: 600; font-size: 0.8rem; }
