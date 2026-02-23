@@ -72,7 +72,7 @@ const CONTENT = {
         period:  "Ongoing",
         title:   "Discretionary Trader",
         org:     "Self-Directed",
-        desc:    "Manage a personal trading account across equities, indices, crypto, and commodities including gold. Track macro indicators alongside technical and fundamental analysis. Maintain a detailed trade journal and performance log."
+        desc:    "Manage a personal trading account across equities, indices, crypto, and commodities including gold. Track macro indicators alongside technical and fundamental analysis."
       }
     ]
   },
