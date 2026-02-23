@@ -32,7 +32,7 @@
         <div class="hero-label">Equity Research · Fundamental Analysis</div>
         <h1>Jaden<br><em>Kwek</em></h1>
         <p class="hero-sub">
-          Aspiring equity research analyst sharing rigorous investment memos, financial models, and market commentary. Bottom-up, fundamentals-first.
+          Aspiring equity research analyst publishing investment research, financial models, and market commentary. Macro-informed, fundamentals-driven.
         </p>
         <div class="hero-actions">
           <a href="/research" class="btn btn-gold btn-lg">View Research →</a>
@@ -90,7 +90,7 @@
           <!-- Populated by JS -->
         </div>
         <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
-          <a href="mailto:jaden.kwek@gmail.com" class="btn btn-primary">Email Me →</a>
+          <button class="btn btn-primary" onclick="copyEmail(this)">Email Me →</button>
           <a href="https://www.linkedin.com/in/jadenkwek" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
         </div>
       </div>
@@ -206,7 +206,7 @@
         <p class="cta-strip-sub">Equity research roles, internships, or just a chat about markets.</p>
       </div>
       <div class="cta-strip-actions">
-        <a href="mailto:jaden.kwek@gmail.com" class="btn btn-gold btn-lg">Email Me →</a>
+        <button class="btn btn-gold btn-lg" onclick="copyEmail(this)">Email Me →</button>
         <a href="https://www.linkedin.com/in/jadenkwek" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">LinkedIn ↗</a>
       </div>
     </div>
@@ -225,6 +225,19 @@
 <script src="js/content.js"></script>
 <script src="js/main.js"></script>
 <script>
+  function copyEmail(btn) {
+    const email = 'jaden.kwek@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.style.opacity = '0.8';
+      setTimeout(() => { btn.textContent = orig; btn.style.opacity = ''; }, 2000);
+    }).catch(() => {
+      // Fallback: open mailto if clipboard not available
+      window.location.href = 'mailto:' + email;
+    });
+  }
+
   initPage();
 
   // Populate bio
@@ -271,11 +284,11 @@
   // Contact
   const contactEl = document.getElementById('contact-grid');
   if (contactEl) contactEl.innerHTML = `
-    <a href="mailto:${a.email}" class="contact-card">
+    <div class="contact-card" style="cursor:pointer" onclick="copyEmail(this)" title="Click to copy">
       <div class="contact-card-icon">✉️</div>
       <div class="contact-card-label">Email</div>
       <div class="contact-card-value">${a.email}</div>
-    </a>
+    </div>
     <a href="${a.linkedin}" target="_blank" rel="noopener" class="contact-card">
       <div class="contact-card-icon">💼</div>
       <div class="contact-card-label">LinkedIn</div>

@@ -34,15 +34,15 @@ const CONTENT = {
     email:     "jaden.kwek@gmail.com",
     linkedin:  "https://www.linkedin.com/in/jadenkwek",
     bio: [
-      "I am a double-degree student at Wilfrid Laurier University studying Business Administration and Financial Mathematics, maintaining a 3.93 GPA. My focus is on fundamental equity research, financial modelling, and developing a rigorous, process-driven approach to investing.",
+      "I am a double-degree student at Wilfrid Laurier University studying Business Administration and Financial Mathematics, maintaining a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
       "Through internships in fixed income at Empire Life Investments, specialty underwriting at CNA Financial, and business banking at Libro Credit Union, I have built a strong foundation in credit analysis, financial statement analysis, and quantitative modelling.",
-      "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. I also trade my own discretionary account, which keeps me closely engaged with markets on a daily basis."
+      "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. I also manage a personal trading account across equities, indices, crypto, and commodities including gold, which keeps me closely engaged with markets every day."
     ],
-    philosophy: "I believe that durable alpha comes from deep fundamental work — understanding businesses at a level that the market has not yet fully priced in. My process is bottom-up, thesis-driven, and focused on identifying mismatches between intrinsic value and market price.",
+    philosophy: "My approach combines top-down macro and bottom-up fundamentals. On the macro side, I track the TGA, ISM PMI, and global liquidity to understand the broader backdrop before getting into individual names. From there, I look for businesses where the market has not fully priced in the underlying value. The goal is to find good companies at the right point in the cycle.",
     certifications: [
       { name: "CFA Level I", issuer: "CFA Institute", date: "November 2023", status: "Earned" },
       { name: "CFA Level II Candidate", issuer: "CFA Institute", date: "May 2026", status: "In Progress" },
-      { name: "Mensa Canada Member", issuer: "Mensa International", date: "2023", status: "Active" }
+      { name: "Mensa Canada", issuer: "Mensa International", date: "2025", status: "Earned" }
     ],
     skills: [
       "Equity Research", "Financial Modelling", "DCF / Valuation", "Credit Analysis",
@@ -72,7 +72,7 @@ const CONTENT = {
         period:  "Ongoing",
         title:   "Discretionary Trader",
         org:     "Self-Directed",
-        desc:    "Manage a personal trading account applying fundamental and technical analysis across equities. Maintain a detailed trade journal and performance log."
+        desc:    "Manage a personal trading account across equities, indices, crypto, and commodities including gold. Track macro indicators alongside technical and fundamental analysis. Maintain a detailed trade journal and performance log."
       }
     ]
   },
@@ -112,7 +112,7 @@ const CONTENT = {
       targetPrice:  "$300",
       currentPrice: "$228",
       date:         "2026-02-23",
-      thesis:       "AEM is the lowest-cost senior gold producer globally (FY2025A AISC $1,339/oz vs. peer median ~$1,500/oz), offering exceptional operating leverage to gold prices with a net-debt-free balance sheet, 54.8 Moz reserve base, and a blended valuation target of $300/share implying 31% upside. DCF target $371, Comps $329.",
+      thesis:       "AEM is the lowest-cost senior gold producer globally (FY2025A AISC $1,339/oz vs. peer median ~$1,500/oz), offering exceptional operating leverage to gold prices with a net-debt-free balance sheet, 54.8 Moz reserve base, and a blended valuation target of $300/share. DCF target $371, Comps $329.",
       files: [
         { name: "Financial Model", type: "excel", url: "files/research/AEM-model.xlsx" }
       ],
