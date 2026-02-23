@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Jaden Kwek</title>
+  <meta name="description" content="Market commentary, trade ideas, and thoughts on investing by Jaden Kwek." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>" />
+</head>
+<body>
+
+<div id="site-loader"><div class="loader-logo">Jaden Kwek</div></div>
+
+<div id="nav-placeholder"></div>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-label">Trading Blog</div>
+    <h1>Market Commentary</h1>
+    <p>Trade ideas, market observations, and thoughts on the craft of fundamental investing.</p>
+  </div>
+</div>
+
+
+<!-- Blog Grid -->
+<section class="section" style="padding-top:3rem">
+  <div class="container">
+    <div class="blog-grid" id="blog-grid">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- How to add a post -->
+    <div style="margin-top:4rem;padding:2rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg)">
+      <div style="font-size:0.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem">For Jaden</div>
+      <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.5rem">How to publish a new blog post</h3>
+      <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.7">
+        Open <strong>js/content.js</strong> and add a new object to the <code style="background:var(--bg-tertiary);padding:.1rem .4rem;border-radius:4px;font-size:.8rem">CONTENT.blog</code> array.
+        Give it a unique <code style="background:var(--bg-tertiary);padding:.1rem .4rem;border-radius:4px;font-size:.8rem">id</code>, fill in the title, date, category, excerpt, and write your post content using HTML tags in the <code style="background:var(--bg-tertiary);padding:.1rem .4rem;border-radius:4px;font-size:.8rem">content</code> field.
+        Save the file and the post will automatically appear here and on the homepage.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+  initPage();
+  renderBlogPage();
+</script>
+</body>
+</html>

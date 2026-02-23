@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Jaden Kwek</title>
+  <meta name="description" content="Equity research notes, investment memos, and financial models by Jaden Kwek." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>" />
+</head>
+<body>
+
+<div id="site-loader"><div class="loader-logo">Jaden Kwek</div></div>
+
+<div id="nav-placeholder"></div>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-label">Investment Research</div>
+    <h1>Research Notes</h1>
+    <p>Long-form equity research with supporting financial models and investment memos. Not financial advice.</p>
+  </div>
+</div>
+
+
+<!-- Research Grid -->
+<section class="section" style="padding-top:3rem">
+  <div class="container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" id="filter-bar">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Count -->
+    <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1.5rem" id="research-count"></div>
+
+    <!-- Grid -->
+    <div class="research-grid" id="research-grid">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- How to add note -->
+    <div style="margin-top:4rem;padding:2rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg)">
+      <div style="font-size:0.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem">For Jaden</div>
+      <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.5rem">How to add a new research note</h3>
+      <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.7">
+        Open <strong>js/content.js</strong> and add a new object to the <code style="background:var(--bg-tertiary);padding:.1rem .4rem;border-radius:4px;font-size:.8rem">CONTENT.research</code> array.
+        Drop your PDF memo or Excel model into the <strong>files/research/</strong> folder and reference the filename in the <code style="background:var(--bg-tertiary);padding:.1rem .4rem;border-radius:4px;font-size:.8rem">files</code> field.
+        The template is inside content.js with instructions.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+  initPage();
+  renderResearchPage();
+
+  // Update count after render
+  const items = document.querySelectorAll('#research-grid .card');
+  const countEl = document.getElementById('research-count');
+  if (countEl) countEl.textContent = `${CONTENT.research.length} note${CONTENT.research.length !== 1 ? 's' : ''}`;
+</script>
+</body>
+</html>
