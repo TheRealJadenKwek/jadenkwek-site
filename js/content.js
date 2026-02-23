@@ -137,26 +137,24 @@ const CONTENT = {
       title:    "Why I Started This Site",
       date:     "2025-02-23",
       category: "Meta",
-      excerpt:  "A brief note on why I decided to publish my investment research and trading journal online — and what you can expect to find here.",
+      excerpt:  "Why I decided to put my research and trading journal online, and what you can expect to find here.",
       content:  `
-        <p>Welcome to my site. I'm Jaden — an aspiring equity research analyst with a passion for fundamental investing, financial modelling, and understanding businesses deeply.</p>
+        <p>I've been meaning to do this for a while. I track a lot — macro indicators, pair charts, individual names, trades — and most of it just sits in spreadsheets and notes that nobody sees. This site is my attempt to change that.</p>
 
-        <p>I started this site for one simple reason: writing forces rigour. Publishing research publicly raises the bar — you can't be sloppy when your name is attached to it. Every memo, every model, every blog post is a commitment to do the work properly.</p>
+        <p>The main reason I'm doing this is that publishing forces you to be precise. It's easy to have a vague bullish view on something. It's harder to write it down, put a price target on it, and explain exactly why. That friction is the point.</p>
 
-        <h2>What You'll Find Here</h2>
-        <p>This site has three main sections:</p>
+        <h2>What's on here</h2>
+        <p>Three sections:</p>
         <ul>
-          <li><strong>Investment Research</strong> — Long-form equity research notes, including my financial models and investment memos. These are my own views, not financial advice.</li>
-          <li><strong>Trading Blog</strong> — Commentary on markets, trades I'm tracking, macro themes, and lessons learned from my discretionary trading account.</li>
-          <li><strong>About</strong> — My background, experience, and what I'm working towards.</li>
+          <li><strong>Investment Research</strong> — My equity research notes with the models attached. These are my own views, not financial advice.</li>
+          <li><strong>Trading Blog</strong> — Macro commentary, trades I'm watching, and whatever I'm thinking about in markets. Covers equities, crypto, gold, and indices.</li>
+          <li><strong>About</strong> — Background and what I'm working towards.</li>
         </ul>
 
-        <h2>My Process</h2>
-        <p>I'm a bottom-up, fundamentals-first investor. I look for businesses with durable competitive advantages, strong capital allocation, and management teams that think like owners — trading at prices that don't yet reflect their long-term value.</p>
+        <h2>How I approach markets</h2>
+        <p>I start with macro. Pair charts, the TGA, ISM PMI, global liquidity — that tells me which asset class makes sense to be in. Then I go bottom-up to find the specific names, and use technical analysis for things like gold and bitcoin where there's no income statement to work from.</p>
 
-        <blockquote>The goal is never to be interesting. The goal is to be right.</blockquote>
-
-        <p>Thanks for reading. More to come.</p>
+        <p>Anyway, more to come. Thanks for reading.</p>
       `
     },
     {
