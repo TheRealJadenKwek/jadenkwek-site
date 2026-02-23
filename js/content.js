@@ -97,16 +97,18 @@ const CONTENT = {
   research: [
     {
       id:           1,
-      ticker:       "EXAMPLE",
-      company:      "Your First Research Note",
-      sector:       "Technology",
+      ticker:       "AEM",
+      company:      "Agnico Eagle Mines Limited",
+      sector:       "Gold Mining",
       rating:       "BUY",
-      targetPrice:  "$—",
-      currentPrice: "$—",
-      date:         "2025-02-01",
-      thesis:       "Add your first research note by editing content.js. Drop your PDF memo and Excel model into /files/research/, then update the files array below.",
-      files:        [],
-      tags:         ["Technology"]
+      targetPrice:  "$300",
+      currentPrice: "$228",
+      date:         "2026-02-23",
+      thesis:       "AEM is the lowest-cost senior gold producer globally (FY2025A AISC $1,339/oz vs. peer median ~$1,500/oz), offering exceptional operating leverage to gold prices with a net-debt-free balance sheet, 54.8 Moz reserve base, and a blended valuation target of $300/share implying 31% upside. DCF target $371, Comps $329.",
+      files: [
+        { name: "Financial Model", type: "excel", url: "files/research/AEM-model.xlsx" }
+      ],
+      tags: ["Gold Mining", "Materials", "Large Cap"]
     }
   ],
 
