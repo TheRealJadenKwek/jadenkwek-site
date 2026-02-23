@@ -51,6 +51,53 @@ const ICONS = {
   link:  `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`
 };
 
+/* ── LIVE STOCK PRICES ─────────────────────────────────── */
+const _priceCache = {};
+
+async function fetchLiveQuote(ticker) {
+  const key = CONTENT?.config?.finnhubKey;
+  if (!key) return null;
+
+  // Return cached data if less than 5 minutes old
+  const cached = _priceCache[ticker];
+  if (cached && Date.now() - cached.ts < 300_000) return cached.data;
+
+  try {
+    const res  = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(ticker)}&token=${key}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.c || data.c === 0) return null;   // 0 = invalid/market closed response
+    _priceCache[ticker] = { data, ts: Date.now() };
+    return data;
+  } catch { return null; }
+}
+
+function fmtPrice(n) {
+  return n != null ? '$' + n.toFixed(2) : null;
+}
+
+function calcUpside(currentPrice, targetStr) {
+  if (!currentPrice || !targetStr) return null;
+  const target = parseFloat(targetStr.replace(/[^0-9.]/g, ''));
+  if (!target) return null;
+  const pct = ((target - currentPrice) / currentPrice) * 100;
+  const sign = pct >= 0 ? '+' : '';
+  return `${sign}${pct.toFixed(1)}% upside`;
+}
+
+// Fetch prices for all research items and update card price badges
+async function refreshCardPrices() {
+  for (const r of (CONTENT.research || [])) {
+    if (!r.ticker) continue;
+    const q = await fetchLiveQuote(r.ticker);
+    if (!q) continue;
+    const el = document.getElementById(`live-price-${r.ticker}`);
+    if (!el) continue;
+    const dir = q.d >= 0 ? 'up' : 'down';
+    el.innerHTML = `<span class="live-price-badge live-price-${dir}">${fmtPrice(q.c)} <span class="live-price-chg">${q.d >= 0 ? '▲' : '▼'} ${Math.abs(q.dp).toFixed(2)}%</span></span>`;
+  }
+}
+
 /* ── HELPERS ───────────────────────────────────────────── */
 function formatDate(dateStr, opts = {}) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -222,6 +269,7 @@ function renderResearchGrid(items) {
   }
   const sorted = [...items].sort((a, b) => b.date.localeCompare(a.date));
   grid.innerHTML = sorted.map(r => researchCardHTML(r)).join('');
+  refreshCardPrices(); // async — updates live price badges after render
 }
 
 /* ── BLOG PAGE ─────────────────────────────────────────── */
@@ -302,10 +350,25 @@ function openResearchModal(id) {
      <span class="modal-meta-dot">·</span>
      <span class="modal-meta-item">${formatDate(r.date, {month:'long', day:'numeric', year:'numeric'})}</span>`;
 
-  const prices = [];
-  if (r.currentPrice) prices.push(`<div class="modal-price-block"><div class="modal-price-label">Current Price</div><div class="modal-price-value">${r.currentPrice}</div></div>`);
-  if (r.targetPrice)  prices.push(`<div class="modal-price-block"><div class="modal-price-label">Price Target</div><div class="modal-price-value target">${r.targetPrice}</div></div>`);
-  document.getElementById('modal-prices').innerHTML = prices.join('');
+  // Build prices section — show static price first, then fetch live
+  function buildPrices(livePrice) {
+    const current = livePrice != null ? fmtPrice(livePrice) : (r.currentPrice || null);
+    const upside  = livePrice != null ? calcUpside(livePrice, r.targetPrice) : null;
+    const prices  = [];
+    if (current) prices.push(`
+      <div class="modal-price-block">
+        <div class="modal-price-label">Current Price${livePrice ? ' <span class="live-dot">● LIVE</span>' : ''}</div>
+        <div class="modal-price-value">${current}</div>
+      </div>`);
+    if (r.targetPrice) prices.push(`
+      <div class="modal-price-block">
+        <div class="modal-price-label">Price Target</div>
+        <div class="modal-price-value target">${r.targetPrice}${upside ? `<span class="modal-upside"> · ${upside}</span>` : ''}</div>
+      </div>`);
+    document.getElementById('modal-prices').innerHTML = prices.join('');
+  }
+
+  buildPrices(null); // initial render with static price
 
   document.getElementById('modal-footer').innerHTML = r.files && r.files.length
     ? fileButtons(r.files, true)
@@ -313,6 +376,15 @@ function openResearchModal(id) {
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // Fetch live price and update modal
+  if (CONTENT?.config?.finnhubKey) {
+    fetchLiveQuote(r.ticker).then(q => {
+      if (q && document.getElementById('research-modal')?.classList.contains('open')) {
+        buildPrices(q.c);
+      }
+    });
+  }
 }
 
 function closeResearchModal() {
@@ -341,6 +413,7 @@ function researchCardHTML(r) {
         <span class="research-meta-dot">·</span>
         <span>${formatDate(r.date, {month:'short', day:'numeric', year:'numeric'})}</span>
         ${r.targetPrice ? `<span class="research-meta-dot">·</span><span>Target: <strong>${r.targetPrice}</strong></span>` : ''}
+        ${CONTENT?.config?.finnhubKey ? `<span class="research-meta-dot">·</span><span id="live-price-${r.ticker}" class="live-price-wrap">···</span>` : ''}
       </div>
       <p class="research-thesis">${r.thesis}</p>
     </div>

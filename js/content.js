@@ -15,6 +15,14 @@
 
 const CONTENT = {
 
+  /* ── API KEYS ──────────────────────────────────────────
+     Finnhub: free stock price API — sign up at finnhub.io
+     Paste your key below (takes ~2 minutes, no credit card).
+  ──────────────────────────────────────────────────────── */
+  config: {
+    finnhubKey: "d6e9llpr01qppk0nh230d6e9llpr01qppk0nh23g"
+  },
+
   /* ── YOUR PROFILE ─────────────────────────────────────── */
   about: {
     name:      "Jaden Kwek",
