@@ -46,8 +46,8 @@ const CONTENT = {
     ],
     skills: [
       "Equity Research", "Financial Modelling", "DCF / Valuation", "Credit Analysis",
-      "Bloomberg Terminal", "Capital IQ", "Excel / VBA", "R (Statistical Computing)",
-      "Fixed Income", "Financial Statements", "Python (Basic)", "Underwriting"
+      "Bloomberg Terminal", "Capital IQ", "Excel", "R (Statistical Computing)",
+      "Fixed Income", "Financial Statements", "Technical Analysis", "Underwriting"
     ],
     experience: [
       {
