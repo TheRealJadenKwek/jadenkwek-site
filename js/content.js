@@ -174,7 +174,7 @@ const CONTENT = {
         <p>I sold my gold position in early February and moved the whole thing into crypto. At the time I thought it made sense. In hindsight, not so much.</p>
 
         <h2>Gold — The One That Hurts</h2>
-        <p>I sold gold at $4,800. It's now at $5,200. I then bought Bitcoin at $70,800. It's now at $64,700. That's the trade in a nutshell and it's painful to look at.</p>
+        <p>I sold gold at $4,880. It's now at $5,200. I then bought Bitcoin at $70,800. It's now at $64,700. That's the trade in a nutshell and it's painful to look at.</p>
 
         <img src="img/blog/feb23-27/gold.png" alt="XAU/USD chart" class="post-img" />
 
@@ -206,6 +206,11 @@ const CONTENT = {
         <p>ISM came in at 52.6 which is actually a good number — anything above 50 is expansion. The confusing part is that risk assets are still getting sold off despite this. Maybe the market is more focused on the tariff noise and crypto deleveraging than the underlying data. I'm not reading too much into the disconnect yet, but it's something to watch.</p>
 
         <img src="img/blog/feb23-27/ism.png" alt="ISM PMI chart" class="post-img" />
+
+        <h2>BTC Liquidation Heatmap</h2>
+        <p>Looking at the 3-day liquidation heatmap, there's still a pocket of liquidity sitting around $63k. Not a lot below that though. Given the setup, a high leverage scalp long with a limit order at $63k could make some sense here — the liquidity is there and the risk/reward on a short-term bounce is decent if you're disciplined with the stop.</p>
+
+        <img src="img/blog/feb23-27/liquidation-heatmap.png" alt="BTC 3-day liquidation heatmap" class="post-img" />
 
         <p>That's it for now. Tough week so far but nothing that changes my longer-term views. I'll post an update later in the week if anything material changes.</p>
       `
