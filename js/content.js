@@ -114,7 +114,9 @@ const CONTENT = {
       date:         "2026-02-23",
       thesis:       "AEM is the lowest-cost senior gold producer globally (FY2025A AISC $1,339/oz vs. peer median ~$1,500/oz), offering exceptional operating leverage to gold prices with a net-debt-free balance sheet, 54.8 Moz reserve base, and a blended valuation target of $300/share. DCF target $371, Comps $329.",
       files: [
-        { name: "Financial Model", type: "excel", url: "files/research/AEM-model.xlsx" }
+        { name: "Investment Memo",  type: "pdf",   url: "files/research/AEM-memo.pdf"          },
+        { name: "Financial Model",  type: "excel", url: "files/research/AEM-model.xlsx"         },
+        { name: "Presentation",     type: "pptx",  url: "files/research/AEM-presentation.pptx"  }
       ],
       tags: ["Gold Mining", "Materials", "Large Cap"]
     }

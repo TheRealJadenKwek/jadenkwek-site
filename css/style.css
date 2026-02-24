@@ -563,6 +563,8 @@ a { color: inherit; text-decoration: none; }
 .file-btn.pdf:hover { background: #FEF2F2; border-color: #DC2626; }
 .file-btn.excel { color: #059669; border-color: #A7F3D0; background: #F0FDF9; }
 .file-btn.excel:hover { background: var(--buy-bg); border-color: #059669; }
+.file-btn.pptx { color: #D04E1A; border-color: #FDDCC9; background: #FFF6F2; }
+.file-btn.pptx:hover { background: #FEF0E8; border-color: #D04E1A; }
 
 /* ── BLOG — table-of-contents style rows ── */
 .blog-row {

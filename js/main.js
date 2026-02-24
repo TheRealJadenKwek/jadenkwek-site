@@ -48,7 +48,8 @@ const ICONS = {
   pdf:   `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
   excel: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>`,
   arrow: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
-  link:  `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`
+  link:  `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
+  pptx:  `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 10h4a2 2 0 0 1 0 4H8v-4z"/><line x1="8" y1="17" x2="8" y2="10"/></svg>`
 };
 
 /* ── LIVE STOCK PRICES ─────────────────────────────────── */
@@ -120,18 +121,26 @@ function ratingBadge(rating) {
 
 function fileButtons(files, modalMode = false) {
   if (!files || !files.length) return '';
+  const dlBtn = (url, label) =>
+    `<a class="file-btn" href="${url}" download rel="noopener" style="background:var(--bg-secondary);color:var(--navy);border:1px solid var(--border)">${ICONS.link}${label || 'Download'}</a>`;
   return files.map(f => {
-    const cls   = f.type === 'pdf' ? 'pdf' : f.type === 'excel' ? 'excel' : '';
-    const icon  = f.type === 'pdf' ? ICONS.pdf : f.type === 'excel' ? ICONS.excel : ICONS.link;
+    const cls  = f.type === 'pdf' ? 'pdf' : f.type === 'excel' ? 'excel' : f.type === 'pptx' ? 'pptx' : '';
+    const icon = f.type === 'pdf' ? ICONS.pdf : f.type === 'excel' ? ICONS.excel : f.type === 'pptx' ? ICONS.pptx : ICONS.link;
     if (!f.url) {
       return `<span class="file-btn ${cls}" style="opacity:.45;cursor:default">${icon}${f.name}</span>`;
     }
-    // In modal mode, Excel files get a Preview + Download pair
-    if (modalMode && f.type === 'excel') {
-      const fullUrl    = window.location.origin + '/' + f.url;
-      const previewUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(fullUrl);
-      return `<a class="file-btn excel" href="${previewUrl}" target="_blank" rel="noopener">${ICONS.excel}Preview Model</a>` +
-             `<a class="file-btn" href="${f.url}" download rel="noopener" style="background:var(--bg-secondary);color:var(--navy);border:1px solid var(--border)">${ICONS.link}Download</a>`;
+    if (modalMode) {
+      const fullUrl = window.location.origin + '/' + f.url;
+      if (f.type === 'excel' || f.type === 'pptx') {
+        const previewUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(fullUrl);
+        const label = f.type === 'pptx' ? 'Preview Slides' : 'Preview Model';
+        return `<a class="file-btn ${cls}" href="${previewUrl}" target="_blank" rel="noopener">${icon}${label}</a>` +
+               dlBtn(f.url);
+      }
+      if (f.type === 'pdf') {
+        return `<a class="file-btn pdf" href="${f.url}" target="_blank" rel="noopener">${ICONS.pdf}Preview Memo</a>` +
+               dlBtn(f.url);
+      }
     }
     return `<a class="file-btn ${cls}" href="${f.url}" target="_blank" rel="noopener">${icon}${f.name}</a>`;
   }).join('');
