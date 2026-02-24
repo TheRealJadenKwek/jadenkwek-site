@@ -28,13 +28,13 @@ const CONTENT = {
     name:      "Jaden Kwek",
     title:     "Aspiring Equity Research Analyst",
     school:    "Wilfrid Laurier University",
-    degree:    "BBA & BSc Financial Mathematics, Double Degree",
+    degree:    "BBA & BA Financial Mathematics, Double Degree",
     gpa:       "3.93 / 4.00",
     location:  "Kitchener, ON · Open to Opportunities",
     email:     "jaden.kwek@gmail.com",
     linkedin:  "https://www.linkedin.com/in/jadenkwek",
     bio: [
-      "I graduated from Wilfrid Laurier University in May 2025 with a double degree in Business Administration and Financial Mathematics, finishing with a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
+      "I graduated from Wilfrid Laurier University in May 2025 with a double degree in Business Administration and Financial Mathematics (BA), finishing with a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
       "Through internships in fixed income at Empire Life Investments, specialty underwriting at CNA Financial, and business banking at Libro Credit Union, I have built a strong foundation in credit analysis, financial statement analysis, and quantitative modelling.",
       "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. Alongside my research work, I actively trade equities, commodities, and crypto in a personal account — which keeps me engaged with live market dynamics and sharpens both my fundamental and macro thinking."
     ],
