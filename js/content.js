@@ -36,9 +36,9 @@ const CONTENT = {
     bio: [
       "I graduated from Wilfrid Laurier University in May 2025 with a double degree in Business Administration and Financial Mathematics (BA), finishing with a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
       "Through internships in fixed income at Empire Life Investments, specialty underwriting at CNA Financial, and business banking at Libro Credit Union, I have built a strong foundation in credit analysis, financial statement analysis, and quantitative modelling.",
-      "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. Alongside my research work, I actively trade equities, commodities, and crypto in a personal account — which keeps me engaged with live market dynamics and sharpens both my fundamental and macro thinking."
+      "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. Alongside my research work, I actively trade equities, commodities, and crypto in a personal account, which keeps me engaged with live market dynamics and sharpens both my fundamental and macro thinking."
     ],
-    philosophy: "Good equity research starts with understanding the business. I build financial models from scratch, stress-test assumptions across scenarios, and try to identify where the market consensus is wrong before I form a view on valuation. Macro analysis gives me the broader context — which sectors face structural headwinds, where the rate environment is heading — but it informs the research rather than replacing it. Even in a tough macro environment, the job is to identify which companies under coverage are better or worse positioned on a relative basis.",
+    philosophy: "Good equity research starts with understanding the business. I build financial models from scratch, stress-test assumptions across scenarios, and try to identify where the market consensus is wrong before I form a view on valuation. Macro analysis gives me the broader context: which sectors face structural headwinds, where the rate environment is heading. But it informs the research rather than replacing it. Even in a tough macro environment, the job is to identify which companies under coverage are better or worse positioned on a relative basis.",
     certifications: [
       { name: "CFA Level I", issuer: "CFA Institute", date: "November 2023", status: "Earned" },
       { name: "CFA Level II Candidate", issuer: "CFA Institute", date: "May 2026", status: "In Progress" },
@@ -141,16 +141,16 @@ const CONTENT = {
       category: "Meta",
       excerpt:  "Why I decided to put my research and trading ideas online, and what you can expect to find here.",
       content:  `
-        <p>I've been meaning to do this for a while. I track a lot — macro indicators, pair charts, individual names, trades, and most of it just sits in my brain. This site is my attempt to change that.</p>
+        <p>I've been meaning to do this for a while. I track a lot: macro indicators, pair charts, individual names, trades, and most of it just sits in my brain. This site is my attempt to change that.</p>
 
         <p>The main reason I'm doing this is that publishing forces you to be precise. It's easy to have a vague bullish view on something. It's harder to write it down, put a price target on it, and explain exactly why. That friction is the point.</p>
 
         <h2>What's on here</h2>
         <p>Three sections:</p>
         <ul>
-          <li><strong>Investment Research</strong> — My equity research notes with the models attached. These are my own views, not financial advice.</li>
-          <li><strong>Trading Blog</strong> — Macro commentary, trades I'm watching, and whatever I'm thinking about in markets. Covers equities, crypto, gold, and indices.</li>
-          <li><strong>About</strong> — Background and what I'm working towards.</li>
+          <li><strong>Investment Research</strong>: My equity research notes with the models attached. These are my own views, not financial advice.</li>
+          <li><strong>Trading Blog</strong>: Macro commentary, trades I'm watching, and whatever I'm thinking about in markets. Covers equities, crypto, gold, and indices.</li>
+          <li><strong>About</strong>: Background and what I'm working towards.</li>
         </ul>
 
         <h2>How I approach markets</h2>
@@ -166,7 +166,7 @@ const CONTENT = {
       category: "Weekly Recap",
       excerpt:  "Bitcoin dumps to $64,700, gold hits $5,200, and I'm sitting here regretting selling my gold in early February. Weekly breakdown across crypto, DXY, and macro.",
       content:  `
-        <p>Not going to sugarcoat it — this has been a rough start to the week. Everything is down, the macro picture is mixed, and I'm dealing with some bad positioning that I need to talk through. Let's get into it.</p>
+        <p>Not going to sugarcoat it: this has been a rough start to the week. Everything is down, the macro picture is mixed, and I'm dealing with some bad positioning that I need to talk through. Let's get into it.</p>
 
         <h2>Bitcoin</h2>
         <p>BTC is down 4.4% on the day, sitting at $64,700. Not a great look. What makes it worse is the context around how I got here.</p>
@@ -195,7 +195,7 @@ const CONTENT = {
         <img src="img/blog/feb23-27/btc-gold.png" alt="BTC/GOLD 4H ratio chart" class="post-img" />
 
         <h2>DXY</h2>
-        <p>I'm still short DXY and still believe this is a local top. The Trump tariff noise — 15% across the board — is annoying but I think the market is going to shrug at it eventually. It's hard to take it seriously as a sustained dollar catalyst when the underlying economic picture is softening. We'll see.</p>
+        <p>I'm still short DXY and still believe this is a local top. The Trump tariff noise (15% across the board) is annoying but I think the market is going to shrug at it eventually. It's hard to take it seriously as a sustained dollar catalyst when the underlying economic picture is softening. We'll see.</p>
 
         <img src="img/blog/feb23-27/dxy.png" alt="DXY chart" class="post-img" />
 
@@ -205,12 +205,12 @@ const CONTENT = {
         <img src="img/blog/feb23-27/tga.png" alt="TGA / Global liquidity chart" class="post-img" />
 
         <h2>ISM PMI</h2>
-        <p>ISM came in at 52.6 which is actually a good number — anything above 50 is expansion. The confusing part is that risk assets are still getting sold off despite this. Maybe the market is more focused on the tariff noise and crypto deleveraging than the underlying data. I'm not reading too much into the disconnect yet, but it's something to watch.</p>
+        <p>ISM came in at 52.6 which is actually a good number (anything above 50 is expansion). The confusing part is that risk assets are still getting sold off despite this. Maybe the market is more focused on the tariff noise and crypto deleveraging than the underlying data. I'm not reading too much into the disconnect yet, but it's something to watch.</p>
 
         <img src="img/blog/feb23-27/ism.png" alt="ISM PMI chart" class="post-img" />
 
         <h2>BTC Liquidation Heatmap</h2>
-        <p>Looking at the 3-day liquidation heatmap, there's still a pocket of liquidity sitting around $63k. Not a lot below that though. Given the setup, a high leverage scalp long with a limit order at $63k could make some sense here — the liquidity is there and the risk/reward on a short-term bounce is decent if you're disciplined with the stop.</p>
+        <p>Looking at the 3-day liquidation heatmap, there's still a pocket of liquidity sitting around $63k. Not a lot below that though. Given the setup, a high leverage scalp long with a limit order at $63k could make some sense here; the liquidity is there and the risk/reward on a short-term bounce is decent if you're disciplined with the stop.</p>
 
         <img src="img/blog/feb23-27/liquidation-heatmap.png" alt="BTC 3-day liquidation heatmap" class="post-img" />
 
