@@ -36,9 +36,9 @@ const CONTENT = {
     bio: [
       "I graduated from Wilfrid Laurier University in May 2025 with a double degree in Business Administration and Financial Mathematics, finishing with a 3.93 GPA. My focus is equity research, financial modelling, and building a disciplined, consistent approach to investing.",
       "Through internships in fixed income at Empire Life Investments, specialty underwriting at CNA Financial, and business banking at Libro Credit Union, I have built a strong foundation in credit analysis, financial statement analysis, and quantitative modelling.",
-      "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. I also manage a personal trading account across equities, indices, crypto, and commodities including gold, which keeps me closely engaged with markets every day."
+      "I am a CFA Level I charterholder (Nov 2023) and currently preparing for the CFA Level II exam in May 2026. Alongside my research work, I actively trade equities, commodities, and crypto in a personal account — which keeps me engaged with live market dynamics and sharpens both my fundamental and macro thinking."
     ],
-    philosophy: "I start with macro. Pair charts tell me which asset class is leading, and indicators like the TGA, ISM PMI, and global liquidity tell me what the broader environment looks like. Once I know where the opportunity is, I go bottom-up on equities to find where the value is, and use technical analysis for assets like gold and bitcoin where there is no balance sheet to work from.",
+    philosophy: "Good equity research starts with understanding the business. I build financial models from scratch, stress-test assumptions across scenarios, and try to identify where the market consensus is wrong before I form a view on valuation. Macro analysis gives me the broader context — which sectors face structural headwinds, where the rate environment is heading — but it informs the research rather than replacing it. Even in a tough macro environment, the job is to identify which companies under coverage are better or worse positioned on a relative basis.",
     certifications: [
       { name: "CFA Level I", issuer: "CFA Institute", date: "November 2023", status: "Earned" },
       { name: "CFA Level II Candidate", issuer: "CFA Institute", date: "May 2026", status: "In Progress" },
@@ -70,9 +70,9 @@ const CONTENT = {
       },
       {
         period:  "Ongoing",
-        title:   "Discretionary Trader",
+        title:   "Independent Research & Active Trading",
         org:     "Self-Directed",
-        desc:    "Manage a personal trading account across equities, indices, crypto, and commodities including gold. Track macro indicators alongside technical and fundamental analysis."
+        desc:    "Publish equity research memos with financial models, and actively trade equities, commodities, and crypto in a personal account. Fundamental and macro analysis drive both research and positioning."
       }
     ]
   },
